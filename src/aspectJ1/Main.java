@@ -1,9 +1,12 @@
 package aspectJ1;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import model.TestModel;
 import model.TimeObjectDTO;
 import services.Service;
 import services.Test;
+import services.Test2;
 
 public class Main {
 
@@ -25,6 +28,8 @@ public class Main {
 		System.out.println(LastTimeUsedAspect.showTime(dto));
 		dto.setName("tomek");
 		System.out.println(LastTimeUsedAspect.showTime(dto));
+		Test2 test2 = new Test2("Test", "test");
+		test2.setTest("Test");
 	}
 	
 	

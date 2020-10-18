@@ -57,6 +57,9 @@ public aspect FirstAspect {
 		return ret;
 	}
 	
+	//zad 4 -------
+
+	
 	
 
 }
