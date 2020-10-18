@@ -29,7 +29,7 @@ public aspect FirstAspect {
 	}
 	
 	pointcut fifthPointcut() : 
-		call(* model.*.set*(..));
+		call(* model.*.set*(..)) && execution(!public * model.*.set*(..));
 	after() : fifthPointcut(){
 		System.out.println("fifth pointcut: set method from model package");
 	}
