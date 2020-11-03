@@ -2,6 +2,8 @@ package aspectJ1;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import executions.Zad1Execution;
 import model.TestModel;
 import model.TimeObjectDTO;
 import services.Service;
@@ -13,25 +15,15 @@ public class Main {
 	public static void main(String[] args) {
 		Main main = new Main();
 		Service service = new Service();
-		main.method1(1);
-		main.method1("m1", 1);
-		main.method2("m2");
-		main.method2("m2", 2);
-		main.floatMethod();
-		service.method();
-		Test test = new Test();
-		test.method();
-		TestModel testModel = new TestModel();
-		main.method3();
-		System.out.println("///////////////////////////////");
-		TimeObjectDTO dto = new TimeObjectDTO("Title1"); 
-		System.out.println(LastTimeUsedAspect.showTime(dto));
-		dto.setName("tomek");
-		System.out.println(LastTimeUsedAspect.showTime(dto));
-		Test2 test2 = new Test2("Test", "test");
-		test2.setTest("Test");
+		
+//		Zad1Execution zad1 = new Zad1Execution(main, service);
+		
+
+		
+		
 	}
 	
+	//zad 1 metody
 	
 	public void method1(int num) {
 //		System.out.println("exec int method1");
@@ -57,5 +49,7 @@ public class Main {
 	public void method3() {
 		
 	}
+	
+	//zad 2
 
 }
