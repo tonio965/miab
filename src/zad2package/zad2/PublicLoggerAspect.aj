@@ -10,21 +10,18 @@ public aspect PublicLoggerAspect {
 	before() : zad2(){
 		Object [] args = thisJoinPoint.getArgs();
 		final Logger log = Logger.getLogger(thisJoinPoint.getSignature().getDeclaringTypeName());
-		int index = 0;
-		boolean containsNull = false;
+		StringBuilder sb = new StringBuilder();
 		for(int i=0; i<args.length; i++) {
-			if(args[i]==null) {
-				containsNull=true;
-				index=i;
-				break;
-			}
+			sb.append("argument: ").append(i).append(" value: ").append(args[i].toString());
 		}
+		log.log(Level.WARNING, log.getName()+" "+thisJoinPoint.getSignature()+" arguments: "+sb.toString());
+
 		
-		if(containsNull) {
-			log.log(Level.WARNING, log.getName()+" argument:"+ index+ " is null");
-			log.log(Level.WARNING, log.getName()+"argument was null so it finished with an exception");
-			throw new IllegalArgumentException(":<");
-		}
-		
-	}	
+	}
+
+	pointcut zad2handler(): handler(*Exception);
+	before(): zad2handler(){
+		final Logger log = Logger.getLogger(thisJoinPoint.getSignature().getDeclaringTypeName());
+		log.log(Level.WARNING, log.getName()+" "+thisJoinPoint.getSignature()+" wyrzucam exception");
+	}
 }
